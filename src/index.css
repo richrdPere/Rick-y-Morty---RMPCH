@@ -29,7 +29,8 @@ html {
 
 /* Globales */
 body {
-  background-color: var(--endo);
+  /* background-color: var(--endo); */
+  background: url("./img/fondo-webp.webp");
   font-size: 1.6rem;
   line-height: 1.5;
   margin: 0;
@@ -117,14 +118,25 @@ span {
 } */
 
 /* Para Cards*/
+.cardsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  font-weight: bold;
+  text-decoration: none;
+  
+}
+
 .contenedorCards {
  /* display: flex; */
- background-color: var(--endo);
+ background-color: var(--fondo);
  /* margin: 1em; */
  text-decoration: none;
  font-weight: bold;
 }
-.grid {
+
+/* .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -135,47 +147,108 @@ span {
   .grid{
     grid-template-columns: repeat(5, 1fr);
   }
-}
+} */
 
 /* Para Card */
-.card {
+.cardContainer {
+  margin: 10px;
   background-color: var(--texas);
-  padding: 1rem;
+  padding: 12px;
+  position: relative;
+  width: 350px;
 }
-.card_name{
-  font-size: 2.8rem;
-  margin: 0.5rem 0;
+.btnContainer{
+  background-color: var(--texas);
+  font-weight: 200;
+  cursor: pointer;
 }
-.card_status{
+.imgNombreContainer{
+  position: relative;
+  width: 100%;
+  max-height: 320px;
+  overflow: hidden;
+}
 
-}
-.card_species {
 
+.datosContainer{
+  font-size: 15px;
+  
 }
-.card_gender{
+.datosContainer h3 {
+  font-weight: bold;
+  color: darkblue;
+}
+.datosContainer span {
+  color: var(--negro);
+}
 
+.imagen {
+  width: 100%;
 }
-.card_origin{
+.btn {
+  font-size: 20px;
+  background-color: rgb(168, 224, 37);
+  font-weight: 300;
+  cursor: pointer;
+  border-radius: 0px 0px 0px 14px;
+  padding: 0px 0px 0px 8px;
+  position: absolute;
+  right: 10px;
+  z-index: 1; /*Prioriza los elementos superpuestos*/
+}
 
+.name {
+  position: absolute;
+  top: 240px;
+  background-color: rgba(75, 218, 75, 0.781);
+  border-radius: 8px;
+  margin-left: 8px;
+  padding: 5px 10px 5px 10px;
+  box-shadow: rgb(17,17,17) 0px 3px 3px;
+  border: 1.5px solid gray;
 }
-.card_image{
 
-}
+
+
 
 /* Para Search Bar*/
 
 .searchContainer{
-  display: flex;
-  padding: 30px 20px;
-  background-color: var(--azul);
+  /* display: flex;
+  padding: 30px 20px; */
+  background-color: var(--fondo);
   justify-content: end;
 }
 
-.searchInput{
-  margin-right: 10px;
+/* .searchInput {
+  float: right;
+  padding-bottom: 5px;
+} */
+
+.inputSearch {
+  margin: 10px;
   border-radius: 10px;
   font-size: 20px;
 }
+
+.btnSearch {
+  display: inline-block;
+  background-color: var(--endo);
+  color: white;
+  border-radius: 10px;
+  /* font-size: 20px; */
+  padding: 10px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1.5em;
+  cursor: pointer;
+
+  &:hover{
+    background-color: var(--verde-limon);
+  }
+}
+
 /* Para SearchBar*/
 /* .contenedorSeachBar {
   font-size: 1.5em;
@@ -191,16 +264,6 @@ span {
   padding: 0.7em;
 
 } */
-.btnSearch {
-  display: inline-block;
-  background-color: var(--azul);
-  color: white;
-  padding: 10px 10px;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 1.5em;
-}
 
 /* Para Nav*/
 .navContainer{

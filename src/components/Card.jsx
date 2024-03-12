@@ -1,34 +1,32 @@
 import ".././index.css";
 
 // eslint-disable-next-line react/prop-types
-const Card = ({id, name, status, species, gender, origin, image, onClose}) => {
+export default function Card({ name, status, species, gender, origin, image, onClose }){
     return (
-        <>
-            <div className="" >
-                <ul>
-                <li><button onClick={onClose}>X</button></li>
-                <li className="">{id}</li>
-                <li className="">{name}</li>
-                <li className="">{status}</li>
-                <li className="">{species}</li>
-                <li className="">{gender}</li>
-                <li className="">{origin}</li>
-                <li><img
-                    className="card_image"
+        <div className="cardContainer">
+            {/*Contenedor Button*/}
+            <div className="btnContainer">
+                <button className="btn" onClick={onClose}>X</button>
+            </div>
+
+            {/*Contenedor Imagen y Nombre */}
+            <div className="imgNombreContainer">
+                <img
+                    className="imagen"
                     src={image}
                     alt="Imagen de un personaje"
-                    />
-                </li>
-                </ul>
+                />
+                <h3 className="name">{name}</h3>
             </div>
-        </>
+
+            {/*Contenedor Datos*/}
+            <div className="datosContainer">
+                <h3>estado: <span>{status}</span></h3>
+                <h3>especie: <span>{species}</span></h3>
+                <h3>genero: <span>{gender}</span></h3>
+                <h3>origen: <span>{origin}</span></h3>
+            </div>
+        </div>
     );
 };
-export default Card;
 
-// export default function Card(props) {
-
-//   return (
-
-//   );
-// }
