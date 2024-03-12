@@ -1,24 +1,24 @@
-import Card from "./Card";
-//import index from ".././index.css";
+/* eslint-disable react/prop-types */
 import ".././index.css";
+import Card from "./Card";
 
-export default function Cards({ characters }) {
+const Cards = ({characters, onClose}) => {
     return (
-        <div className="">
+        <div className="contenedorCards">
             <div className="grid">
-                {characters.map(ch => {
-                return (
-                    <Card
-                    key={ch.id}
-                    name={ch.name}
-                    status={ch.status}
-                    species={ch.species}
-                    gender={ch.gender}
-                    origin={ch.origin.name}
-                    image={ch.image}
-                    onClose={() => window.alert("Emulamos que se cierra la card")}
-                    />
-                );
+                {characters.map(({id, name, status, species, gender, origin, image}) => {
+                    return (
+                        <Card
+                            key={id}
+                            name={name}
+                            status={status}
+                            species={species}
+                            gender={gender}
+                            origin={origin}
+                            image={image}
+                            onClose={onClose}
+                        />
+                    );
                 })}
             </div>
 
@@ -30,3 +30,5 @@ export default function Cards({ characters }) {
         </div>
     );
 }
+
+export default Cards;

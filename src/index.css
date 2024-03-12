@@ -32,6 +32,8 @@ body {
   background-color: var(--endo);
   font-size: 1.6rem;
   line-height: 1.5;
+  margin: 0;
+  place-items: center;
   
   
   font-family: "Lato", sans-serif;
@@ -96,15 +98,13 @@ code {
 }
 
 /* Para App*/
-.header {
+/* .header {
   background-color: var(--verde-limon);
   padding: 1rem 0;
 }
 .header-titulo{
   margin: 0 0;
 }
-
-
 
 span {
   color: rgb(26, 26, 130);
@@ -114,7 +114,7 @@ span {
   max-width: 1200px;
   width: 95%;
   margin: 0 auto;
-}
+} */
 
 /* Para Cards*/
 .contenedorCards {
@@ -162,6 +162,103 @@ span {
 
 }
 
+/* Para Search Bar*/
+
+.searchContainer{
+  display: flex;
+  padding: 30px 20px;
+  background-color: var(--azul);
+  justify-content: end;
+}
+
+.searchInput{
+  margin-right: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+/* Para SearchBar*/
+/* .contenedorSeachBar {
+  font-size: 1.5em;
+  text-align: right;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  
+} */
+/* .inputSearch {
+  width: 25%;
+  display: inline-block;
+  background-color: var(--endo);
+  padding: 0.7em;
+
+} */
+.btnSearch {
+  display: inline-block;
+  background-color: var(--azul);
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1.5em;
+}
+
+/* Para Nav*/
+.navContainer{
+  display: flex;
+  padding: 30px 20px;
+  background-color: var(--verde-limon);
+  justify-content: end;
+  
+}
+
+
+
+
+
+
+
+
+
+/* OTRO CSS*/
+.unorderedList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 3em;
+  display: flex;
+  flex-direction: row;
+}
+
+.listItem:hover {
+  background-color: #262623c9;
+  color: beige;
+}
+
+.listItem img {
+  width: 50%;
+  object-fit: cover;
+  margin: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .unorderedList {
   list-style-type: none;
@@ -195,48 +292,3 @@ span {
   margin: 15px;
 }
 
-/* Para SearchBar*/
-.contenedorSeachBar {
-  font-size: 1.5em;
-  text-align: right;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  
-}
-.inputSearch {
-  width: 25%;
-  display: inline-block;
-  background-color: var(--endo);
-  padding: 0.7em;
-
-}
-.btnSearch {
-  display: inline-block;
-  background-color: var(--azul);
-  color: white;
-  padding: 10px 10px;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 1.5em;
-}
-
-/* OTRO CSS*/
-.unorderedList {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 3em;
-  display: flex;
-  flex-direction: row;
-}
-
-.listItem:hover {
-  background-color: #262623c9;
-  color: beige;
-}
-
-.listItem img {
-  width: 50%;
-  object-fit: cover;
-  margin: 15px;
-}

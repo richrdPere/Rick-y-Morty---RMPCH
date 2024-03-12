@@ -1,10 +1,19 @@
+/* eslint-disable react/prop-types */
 import '.././index.css'
 
-export default function SearchBar({onSearch}) {
+
+const SearchBar = ({ onSearch }) => {
    return (
-      <div className='contenedorSeachBar'>
-         <input className='inputSearch' type='search' />
-         <button className='btnSearch' onClick={onSearch}>Agregar</button>
+      <div>
+         <input className='searchInput' />
+         <button 
+            className='btnSearch' 
+            onClick={onSearch}
+         >
+            Agregar
+         </button>
       </div>
    );
 }
+
+export default SearchBar;
