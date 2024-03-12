@@ -4,10 +4,14 @@ import '.././index.css'
 
 export default function SearchBar({ onSearch }){
 
-   const [id, setId] = useState([]);
+   const [id, setId] = useState("");
 
    const handlerChange = (event) => {
       setId(event.target.value)
+   }
+
+   const clearInput = () => {
+      setId("")
    }
 
    return (
@@ -22,7 +26,7 @@ export default function SearchBar({ onSearch }){
          {/* Search Button */}
          <button 
             className='btnSearch' 
-            onClick={() => onSearch(id)}
+            onClick={() => {onSearch(id); clearInput();}}
          >
             Agregar
          </button>         

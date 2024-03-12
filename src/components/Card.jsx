@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import ".././index.css";
 
 // eslint-disable-next-line react/prop-types
-export default function Card({ name, status, species, gender, origin, image, onClose }){
+export default function Card({ id, name, status, species, gender, origin, image, onClose }){
+
+    const navigate = useNavigate();
+
     return (
-        <div className="cardContainer">
+        <div className="cardContainer" onClick={() => navigate(`/detail/${id}`)}>
             {/*Contenedor Button*/}
             <div className="btnContainer">
-                <button className="btn" onClick={onClose}>X</button>
+                <button className="btn" onClick={() => onClose(id)}>X</button>
             </div>
 
             {/*Contenedor Imagen y Nombre */}
