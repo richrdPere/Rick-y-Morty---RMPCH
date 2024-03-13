@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Cards from "./components/Cards";
 import Nav from "./components/Nav";
 import About from "./components/About";
+// import Form from "./components/Form";
 //import { SearchBar } from "./components/SearchBar.jsx";
 //import characters, {Rick} from './data.js';
 import "./index.css";
 import axios from "axios";
 import Detail from "./components/Detail";
+import LoginView from "./view/LoginView.jsx";
+
 
 function App() {
     const [characters, setCharacters] = useState([]);
@@ -59,8 +62,18 @@ function App() {
 
                     {/* Ruta Detail */}
                     <Route path="/detail/:id" element={
+                        <Detail />
+                    }>
+                    </Route>
+
+                    {/* Ruta Detail - Name */}
+                    <Route path="/detail/:id/name" element={
                         <Detail/>
                     }>
+                    </Route>
+
+                    {/* Ruta Login */}
+                    <Route path="/login" element={<LoginView/>}>
 
                     </Route>
 

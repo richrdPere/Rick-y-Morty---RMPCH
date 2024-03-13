@@ -76,7 +76,22 @@ h2{
 h3{
   font-size: 2.4rem;
 }
-
+form{
+  margin-left: 20px;
+  padding-top: 20px;
+}
+label {
+  margin: 10px 0px 0px 10px;
+  font-size: 20px;
+}
+input {
+  margin: 10px;
+  font-size: 20px;
+}
+button {
+  margin: 10px 0px 0px 10px;
+  font-size: 20px;
+}
 
 /* 
 code {
@@ -276,9 +291,19 @@ span {
 
 
 
+/* Para Detail  */
 
+/* Para Formulario */
 
-
+.formContainer {
+  display: flex;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+}
 
 
 
