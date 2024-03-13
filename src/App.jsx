@@ -15,6 +15,8 @@ import LoginView from "./view/LoginView.jsx";
 
 function App() {
     const [characters, setCharacters] = useState([]);
+    const { pathname } = useLocation();
+
 
     const onClose = (id) => {
         let filterCharacteres = characters.filter((ch) => {
@@ -40,8 +42,10 @@ function App() {
     return (
         <>
             <div>
+
                 {/* Nav */}
-                <Nav onSearch={onSearch} />
+                {/* { pathname !== "/login" && <Nav onSearch={onSearch} />} */}
+                { pathname !== "/login" ? <Nav onSearch={onSearch} /> : null}
 
                 <Routes>
                     {/* Ruta Principal */}
