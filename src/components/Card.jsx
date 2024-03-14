@@ -1,15 +1,52 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useNavigate } from "react-router-dom";
 import ".././index.css";
+import {addFav, removeFav} from "../redux/actions";
+import { connect } from "react-redux";
+import { useEffect, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export default function Card({ id, name, status, species, gender, origin, image, onClose }){
+function Card({ id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites }){
 
     const navigate = useNavigate();
 
+    const [isFav, setIsFav] = useState(false);
+
+    useEffect(() => {
+        // eslint-disable-next-line react/prop-types
+        myFavorites.forEach((fav) => {
+           if (fav.id === id) {
+              setIsFav(true);
+           }
+        });
+     }, [myFavorites]);
+
+    const handleFavorite = () => {
+        isFav ? removeFav(id):
+         addFav({
+            id,
+            image,
+            name,
+            status,
+            species
+         })
+
+         setIsFav(!isFav)
+    }
+ 
     return (
         <div className="cardContainer" onClick={() => navigate(`/detail/${id}`)}>
+            
+
             {/*Contenedor Button*/}
             <div className="btnContainer">
+            {
+                isFav ? (
+                    <button onClick={handleFavorite}>❤️</button>
+                ) : (
+                    <button onClick={handleFavorite}>🤍</button>
+                )
+            }
                 <button className="btn" onClick={() => onClose(id)}>X</button>
             </div>
 
@@ -33,4 +70,21 @@ export default function Card({ id, name, status, species, gender, origin, image,
         </div>
     );
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addFav: (character) => {
+            dispatch(addFav(character));
+        },
+        removeFav: (id) => {
+            dispatch(removeFav(id));
+        }
+    };
+};
+
+const mapStateToProps = (state) => {
+    return {myFavorites: state.myFavorites}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
 

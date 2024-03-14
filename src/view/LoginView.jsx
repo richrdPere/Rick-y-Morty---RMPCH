@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import Form from "../components/Form";
 
-const LoginView = () => {
+const LoginView = ({login}) => {
   return (
     <>
-        <Form/>
+        <Form login={login}/>
     </>
   )
 }

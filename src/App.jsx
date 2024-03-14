@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 import Cards from "./components/Cards";
 import Nav from "./components/Nav";
@@ -11,10 +11,30 @@ import "./index.css";
 import axios from "axios";
 import Detail from "./components/Detail";
 import LoginView from "./view/LoginView.jsx";
+import FavouritesView from "./view/FavouritesView.jsx";
 
 
 function App() {
     const [characters, setCharacters] = useState([]);
+    const [ access, setAccess] = useState(false);
+    const navigate = useNavigate();
+
+    const emailAccess = "richrdpere321@gmail.com";
+    const passwordAccess = "pass123";
+
+    const login = (userData) => {
+        if(userData.email === emailAccess && userData.password === passwordAccess){
+            setAccess(true);
+            navigate("/home");
+        }
+    }
+
+    useEffect(()=>{
+        !access && navigate("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [access]);
+
+
     const { pathname } = useLocation();
 
 
@@ -45,11 +65,11 @@ function App() {
 
                 {/* Nav */}
                 {/* { pathname !== "/login" && <Nav onSearch={onSearch} />} */}
-                { pathname !== "/login" ? <Nav onSearch={onSearch} /> : null}
+                { pathname !== "/" ? <Nav onSearch={onSearch} /> : null}
 
                 <Routes>
                     {/* Ruta Principal */}
-                    <Route path="/" element={
+                    <Route path="/home" element={
                         <>
                             {/* Cards */}
                             <Cards characters={characters} onClose={onClose} />
@@ -77,10 +97,14 @@ function App() {
                     </Route>
 
                     {/* Ruta Login */}
-                    <Route path="/login" element={<LoginView/>}>
+                    <Route path="/" element={<LoginView login={login}/>}>
 
                     </Route>
 
+                    {/* Ruta Favourite */}
+                    <Route path="/favourites" element={<FavouritesView/>}>
+
+                    </Route>
                 </Routes>
 
 

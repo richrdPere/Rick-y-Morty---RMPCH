@@ -10,8 +10,11 @@ const Nav = ({onSearch}) => {
     return (
     <div className='navContainer'>
 
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/about")}>About</button>
+        <Link to={'/home'}>Home</Link>
+        <Link to={'/favourites'}>About</Link>
+        <Link to={'/about'}>Favourites</Link>
+        {/* <button onClick={() => navigate("/home")}>Home</button>
+        <button onClick={() => navigate("/about")}>About</button> */}
         <SearchBar onSearch={onSearch}/>
     
     
