@@ -2,10 +2,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import { connect } from "react-redux"
 import Cards from "./Cards"
+import ".././index.css";
 
 const Favourites = ({myFavorites}) => {
     return (
-        <div>
+        <div className="favoriteContenedor">
             <Cards characters={myFavorites}/>
         </div>
     )

@@ -12,6 +12,8 @@ import axios from "axios";
 import Detail from "./components/Detail";
 import LoginView from "./view/LoginView.jsx";
 import FavouritesView from "./view/FavouritesView.jsx";
+import HomeView from "./view/HomeView.jsx";
+import DetailView from "./view/DetailView.jsx";
 
 
 function App() {
@@ -72,7 +74,8 @@ function App() {
                     <Route path="/home" element={
                         <>
                             {/* Cards */}
-                            <Cards characters={characters} onClose={onClose} />
+                            {/* <Cards characters={characters} onClose={onClose} /> */}
+                            <HomeView characters={characters} onClose={onClose}/>
                         </>
                     } />
 
@@ -86,7 +89,7 @@ function App() {
 
                     {/* Ruta Detail */}
                     <Route path="/detail/:id" element={
-                        <Detail />
+                        <DetailView />
                     }>
                     </Route>
 

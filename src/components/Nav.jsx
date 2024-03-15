@@ -9,13 +9,18 @@ const Nav = ({onSearch}) => {
 
     return (
     <div className='navContainer'>
-
-        <Link to={'/home'}>Home</Link>
-        <Link to={'/favourites'}>About</Link>
-        <Link to={'/about'}>Favourites</Link>
+        <div className='navContainerLinks'>
+            <Link className='navLink' to={'/home'}>Home</Link>
+            <Link className='navLink' to={'/favourites'}>Favourites</Link>
+            <Link className='navLink' to={'/about'}>About</Link>
+        </div>
+        
+        <div>
+            <SearchBar onSearch={onSearch}/>
+        </div>
         {/* <button onClick={() => navigate("/home")}>Home</button>
         <button onClick={() => navigate("/about")}>About</button> */}
-        <SearchBar onSearch={onSearch}/>
+        
     
     
     </div>

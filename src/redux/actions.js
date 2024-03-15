@@ -1,4 +1,4 @@
-import {ADD_FAV, REMOVE_FAV } from "./actions-types";
+import {ADD_FAV, REMOVE_FAV, GET_CHARACTER_DETAIL } from "./actions-types";
 
 const addFav = (character) => {
     return {
@@ -14,4 +14,26 @@ const removeFav = (id) => {
     }
 }
 
-export {addFav, removeFav}
+const getCharacterDetail = (id) => {
+    return function(dispatch){
+        const URL_BASE = "https://rym2.up.railway.app/api";
+        const KEY = "{pi-Seven00321}";
+
+        fetch(`${URL_BASE}/character/${id}?key=${KEY}`)
+        .then(( response ) => response.json())
+        .then((data) => dispatch({ type: GET_CHARACTER_DETAIL, payload: data}));
+
+        // axios.get(`${URL_BASE}/character/${id}?key=${KEY}`)
+        // .then(({ data }) => {
+        //     if (data.name) {
+        //         setCharacter(() => data);
+        //     } else {
+        //         window.alert("No hay personajes con ese ID");
+        //     }
+        //     });
+
+        
+    };
+}
+
+export {addFav, removeFav, getCharacterDetail}

@@ -1,3 +1,4 @@
+/* Variables - INICIO */
 :root {
   --verde-limon: #88e23b;
   --texas: #ebe480;
@@ -8,6 +9,8 @@
 
   --fondo: rgb(26, 26, 130);
   --azul: #2196f3;
+  --azulOscuro: blue;
+  --rosa: pink;
   --blanco: #ffffff;
   --gris-claro: #f5f5f5;
   --gris: #94a3b8;
@@ -15,19 +18,23 @@
   --negro: #000;
 
   --fuenteRickAndMorty: 'Creepster', system-ui;
+  --fuentePrincipal: 'Comic Neue', cursive;
 
 }
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; 
+  font-size: 62.5%;
+
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/* Globales */
+/* Variables - FINAL */
+
+/* Globales - INICIO*/
 body {
   /* background-color: var(--endo); */
   background: url("./img/fondo-webp.webp");
@@ -64,17 +71,26 @@ img {
 }
 h1, h2, h3{
   text-align: center;
-  color: var(--negro);
+  color: var(--blanco);
   font-family: var(--fuenteRickAndMorty);
 }
 h1{
   font-size: 5rem;
+  text-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;
 }
 h2{
-  font-size: 3.2rem;
+  font-size: 2.4rem;
+  text-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;
 }
 h3{
   font-size: 2.4rem;
+ 
 }
 form{
   margin-left: 20px;
@@ -91,7 +107,11 @@ input {
 button {
   margin: 10px 0px 0px 10px;
   font-size: 20px;
+  font-family: var(--fuentePrincipal);
+  
 }
+
+/* Globales - FINAL*/
 
 /* 
 code {
@@ -133,15 +153,26 @@ span {
 } */
 
 /* Para Cards*/
+.homeContenedor {
+  max-width: 150rem;
+  margin: 0 auto;
+}
 .cardsContainer{
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
   font-weight: bold;
-  text-decoration: none;
-  
+  text-decoration: none; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
+@media (min-width: 768px) {
+  .cardsContainer {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 
 .contenedorCards {
  /* display: flex; */
@@ -167,7 +198,10 @@ span {
 /* Para Card */
 .cardContainer {
   margin: 10px;
-  background-color: var(--texas);
+  /* background-color: var(--texas); */
+  background: linear-gradient(var(--azulOscuro), var(--rosa));
+  
+  border-radius: 0px 20px 0px 20px;
   padding: 12px;
   position: relative;
   width: 350px;
@@ -183,10 +217,11 @@ span {
   max-height: 320px;
   overflow: hidden;
 }
-
-
 .datosContainer{
   font-size: 15px;
+  display: flex;
+  gap: 2px;
+  
   
 }
 .datosContainer h3 {
@@ -200,13 +235,22 @@ span {
 .imagen {
   width: 100%;
 }
+.btnFavorite {
+  font-size: 20px;
+  background-color: var(--misterio);
+  border-radius: 0px 0px 0px 14px;
+  font-weight: 300;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  z-index: 1; /*Prioriza los elementos superpuestos*/
+}
 .btn {
   font-size: 20px;
   background-color: rgb(168, 224, 37);
-  font-weight: 300;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 0px 0px 0px 14px;
-  padding: 0px 0px 0px 8px;
   position: absolute;
   right: 10px;
   z-index: 1; /*Prioriza los elementos superpuestos*/
@@ -283,15 +327,87 @@ span {
 /* Para Nav*/
 .navContainer{
   display: flex;
-  padding: 30px 20px;
+  /* padding: 30px 20px; */
+  padding: 1rem 0;
   background-color: var(--verde-limon);
   justify-content: end;
+  gap: 2rem;
+}
+.navContainerLinks {
+  background-color: var(--fondo);
+  padding: 1rem 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem; 
+}
+.navLink {
+  font-family: var(--fuentePrincipal);
+  background-color: var(--endo);
+  color: var(--blanco);
+  font-size: 3rem;
+  padding-top: 2rem;
   
 }
 
 
 
 /* Para Detail  */
+.detailContainer {
+  width: 130rem;
+  height: 65rem;
+  border: 15px var(--negro);
+  padding: 50px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+  gap: 2rem;
+  
+  background-image: url("./img/fondoDetail.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.detailNombreImagen{
+  background-color: var(--azul);
+  width: 450px;  
+}
+.detailNombreImagen h3 {
+  font-size: 33px;
+}
+.imagenDetail {
+  
+}
+.detailContenedor {
+display: flex;
+justify-content: center;
+}
+.detailNombreImagen h3 {
+  font-weight: bold;
+  color: var(--blanco);
+  text-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;
+}
+.detailDescripcion{
+  display: flex;
+  flex-direction: column;  
+}
+.detailDescripcion h3 {
+  font-weight: bold;
+  color: darkblue;
+  font-size: 33px;
+}
+.detailDescripcion span {
+  color: var(--blanco);
+  text-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;
+}
+
 
 /* Para Formulario */
 
@@ -303,6 +419,12 @@ span {
   align-items: center;
   color: white;
   font-size: 20px;
+}
+
+/* Para Favorite */
+.favoriteContenedor {
+  max-width: 150rem;
+  margin: 0 auto;
 }
 
 
@@ -326,26 +448,6 @@ span {
   object-fit: cover;
   margin: 15px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .unorderedList {

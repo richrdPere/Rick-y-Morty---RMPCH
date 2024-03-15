@@ -35,37 +35,37 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
     }
  
     return (
-        <div className="cardContainer" onClick={() => navigate(`/detail/${id}`)}>
+        <div className="cardContainer" >
             
 
             {/*Contenedor Button*/}
             <div className="btnContainer">
             {
                 isFav ? (
-                    <button onClick={handleFavorite}>❤️</button>
+                    <button className="btnFavorite" onClick={handleFavorite}>❤️</button>
                 ) : (
-                    <button onClick={handleFavorite}>🤍</button>
+                    <button className="btnFavorite" onClick={handleFavorite}>🤍</button>
                 )
             }
                 <button className="btn" onClick={() => onClose(id)}>X</button>
             </div>
 
             {/*Contenedor Imagen y Nombre */}
-            <div className="imgNombreContainer">
+            <div className="imgNombreContainer" onClick={() => navigate(`/detail/${id}`)}>
                 <img
                     className="imagen"
                     src={image}
                     alt="Imagen de un personaje"
                 />
-                <h3 className="name">{name}</h3>
+                <h2 className="name">{name}</h2>
             </div>
 
             {/*Contenedor Datos*/}
             <div className="datosContainer">
-                <h3>estado: <span>{status}</span></h3>
-                <h3>especie: <span>{species}</span></h3>
-                <h3>genero: <span>{gender}</span></h3>
-                <h3>origen: <span>{origin}</span></h3>
+                <h3>estado <span>{status}</span></h3>
+                <h3>especie <span>{species}</span></h3>
+                <h3>genero <span>{gender}</span></h3>
+                {/* <h3>origen <span>{origin}</span></h3> */}
             </div>
         </div>
     );

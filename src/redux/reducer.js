@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { ADD_FAV, REMOVE_FAV } from "./actions-types";
+import { ADD_FAV, GET_CHARACTER_DETAIL, REMOVE_FAV } from "./actions-types";
 
 const initialState = {
     myFavorites: [],
@@ -20,6 +20,12 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 myFavorites: filteredFavs,
+            }
+
+        case GET_CHARACTER_DETAIL:
+            return {
+                ...state,
+                characterDetail: action.payload,
             }
         default: 
             return {...state};
