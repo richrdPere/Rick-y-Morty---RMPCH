@@ -28,7 +28,8 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
             image,
             name,
             status,
-            species
+            species,
+            gender
          })
 
          setIsFav(!isFav)
