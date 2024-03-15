@@ -23,41 +23,42 @@ const Form = ({login}) => {
 
     return (
         <div className="formContainer">
+
+            <h2>Login - Rick and Morty</h2>
             <form onSubmit={handlerSubmit}>
                 {/* Email */}
-                <div className="inputContainer">
-                    <label id="email">
+                 {/* <label id="email">
                         Email:{" "}
-                    </label>
-                    <input 
-                        type="text" 
-                        placeholder="email" 
-                        name="email" 
-                        value={userData.email} 
-                        onChange={handlerChange}
-                    />
+                    </label> */}
+                <input 
+                    className="login-username"
+                    type="text" 
+                    placeholder="Email" 
+                    name="email" 
+                    value={userData.email} 
+                    onChange={handlerChange}
+                />
                     {/* {errors.email && <span>{errors.email}</span>} */}
                     {errors.email ? <span>{errors.email}</span> : null}
-                </div>
-
                 {/* Password */}
-                <div className="inputContainer">
-                    <label id="password">
+                {/* <label id="password">
                         Contraseña:{" "}
-                    </label>
-                    <input 
-                        type="password" 
-                        placeholder="Password" 
-                        name="password" 
-                        value={userData.password}  
-                        onChange={handlerChange} 
-                    />
-                    {/* {errors.password && <span>{errors.password}</span>} */}
-                    {errors.password ? <span>{errors.password}</span>: null}
-                </div>
+                    </label> */}
+                <input 
+                    className="login-password "
+                    type="password" 
+                    placeholder="Password" 
+                    name="password" 
+                    value={userData.password}  
+                    onChange={handlerChange} 
+                />
+                {/* {errors.password && <span>{errors.password}</span>} */}
+                {errors.password ? <span>{errors.password}</span>: null}
 
                 {/* Ingresar */}
-                <button >Ingresar</button>
+                <button className="loginSubmit">Ingresar</button>              
+
+                
             </form>
         </div>
     );

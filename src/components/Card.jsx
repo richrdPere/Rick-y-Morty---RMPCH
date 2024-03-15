@@ -58,7 +58,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, addFa
                     src={image}
                     alt="Imagen de un personaje"
                 />
-                <h2 className="name">{name}</h2>
+                <h2 className="name">{name}  | <span>{id}</span></h2>
             </div>
 
             {/*Contenedor Datos*/}

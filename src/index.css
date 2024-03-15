@@ -110,6 +110,10 @@ button {
   font-family: var(--fuentePrincipal);
   
 }
+p {
+  font-family: var(--fuentePrincipal);
+  font-weight: 700;
+}
 
 /* Globales - FINAL*/
 
@@ -217,6 +221,12 @@ span {
   max-height: 320px;
   overflow: hidden;
 }
+.imgNombreContainer span {
+  color: var(--negro);
+  font-family: var(--fuenteRickAndMorty);
+  text-shadow: none;
+  font-weight: 700;
+}
 .datosContainer{
   font-size: 15px;
   display: flex;
@@ -275,8 +285,12 @@ span {
 .searchContainer{
   /* display: flex;
   padding: 30px 20px; */
-  background-color: var(--fondo);
+  /* background-color: var(--fondo); */
+  background: rgb(0,16,36);
+  background: linear-gradient(90deg, rgba(0,16,36,0.7147233893557423) 0%, rgba(34,198,22,1) 23%, rgba(0,212,255,0.7455357142857143) 100%);
   justify-content: end;
+  width: 50rem;
+  border-radius: 20px;
 }
 
 /* .searchInput {
@@ -304,9 +318,12 @@ span {
   cursor: pointer;
 
   &:hover{
-    background-color: var(--verde-limon);
+    background-color: var(--texas);
+    color: var(--negro);
   }
 }
+
+
 
 /* Para SearchBar*/
 /* .contenedorSeachBar {
@@ -328,26 +345,49 @@ span {
 .navContainer{
   display: flex;
   /* padding: 30px 20px; */
+  width: 190.3rem;
   padding: 1rem 0;
-  background-color: var(--verde-limon);
-  justify-content: end;
+  /* background-color: var(--verde-limon); */
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(22,56,198,1) 23%, rgba(9,32,121,0.7091211484593838) 55%, rgba(6,95,168,1) 81%, rgba(0,212,255,1) 100%);
+  justify-content: space-between;
   gap: 2rem;
+  
 }
 .navContainerLinks {
-  background-color: var(--fondo);
-  padding: 1rem 5rem;
+  /* background-color: var(--fondo); */
+  background: rgb(0,16,36);
+  background: linear-gradient(90deg, rgba(0,16,36,0.7147233893557423) 0%, rgba(34,198,22,1) 23%, rgba(0,212,255,0.7455357142857143) 100%);
+  width: 116rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   gap: 2rem; 
+  border-radius: 20px;
 }
 .navLink {
   font-family: var(--fuentePrincipal);
   background-color: var(--endo);
   color: var(--blanco);
   font-size: 3rem;
-  padding-top: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  /* padding-top: 2rem; */
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
   
 }
+.navLink:hover{
+  /* background-color: #262623c9; */
+  background-color: var(--texas);
+  color: var(--negro);
+  line-height: 1.5;
+}
+/* .listItem:hover {
+  background-color: #262623c9;
+  color: beige;
+} */
 
 
 
@@ -361,6 +401,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-radius: 14px;
   
   gap: 2rem;
   
@@ -371,7 +412,13 @@ span {
 
 .detailNombreImagen{
   background-color: var(--azul);
+  overflow: hidden;
   width: 450px;  
+  border-radius: 15px;
+  box-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;;
 }
 .detailNombreImagen h3 {
   font-size: 33px;
@@ -412,7 +459,23 @@ justify-content: center;
 /* Para Formulario */
 
 .formContainer {
-  display: flex;
+  /* display: flex; */
+  background-image: url("./img/fondoAbout.webp");
+	background-size: cover;
+
+  min-height: 30rem;
+  margin: 10rem auto;
+  max-width: 30%;
+  padding: .5rem;
+  border-radius: 15px;
+  box-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;
+  
+}
+.formContainer span {
+  color: red;
 }
 .inputContainer {
   display: flex;
@@ -420,6 +483,40 @@ justify-content: center;
   color: white;
   font-size: 20px;
 }
+.login-username, .login-password {
+
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(white, .5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.loginSubmit {
+  border: 1px solid white;
+  background: var(--blanco);
+  color: var(--negro);
+  display: block;
+  margin: 2rem auto;
+  min-width: 1px;
+  padding: .75rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: var(--texas);
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
 
 /* Para Favorite */
 .favoriteContenedor {
@@ -427,7 +524,37 @@ justify-content: center;
   margin: 0 auto;
 }
 
+.favoriteContenedor select {
+  font-size: 22px;
+  margin-left: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 11px;
+  background-color: var(--endo);
+  box-shadow: 4px  0px 0px black,
+  0px  3px 0px black,
+ -3px  0px 0px black,
+  0px -3px 0px black;
+  &:hover, &:focus {
+    background: var(--texas);
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
 
+
+/* Para About*/
+.containerAbout{
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+}
+
+.imagenAbout {
+  background-image: url("./img/fondoAbout.webp");
+	background-size: cover;
+} 
 
 /* OTRO CSS*/
 .unorderedList {
