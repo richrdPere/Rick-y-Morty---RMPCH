@@ -30,34 +30,58 @@ exports.getCharById = (res, id) => {
 };
 */
 
-//const URL = `https://rym2.up.railway.app/api/character/${id}?key=pi-Seven00321`
+const URL = `https://rym2.up.railway.app/api/`;
 
 const axios = require("axios");
 
-
-exports.getCharById = (req, res) => {
-    // extraemos ek id de req con Params
+exports.getCharById = async (req, res) => {
+  // extraemos el id de req con Params
+  try {
     const { id } = req.params;
+    const { data } = await axios.get(`${URL}${id}?key=pi-Seven00321`);
 
-    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-Seven00321`)
-    .then((resp) => {
-        let {name, gender, species, origin, image, status } = resp.data;
+    if (data) {
+      const { id, name, gender, species, origin, image, status } = data;
 
-        const character = {
-            id,
-            name,
-            gender,
-            species,
-            origin,
-            image,
-            status,
-        };
+      let character = {
+        id,
+        name,
+        gender,
+        species,
+        origin,
+        image,
+        status,
+      };
 
-        return character.name 
-        ? res.JSON(character)
-        : res.status(404).send("Not found");
-    })
-    .catch((reason) => {
-        return res.status(500).send(reason.message);
-    });
+      return res.status(200).json(character);
+    }
+
+    return res.status(404).json({ error: "Not found" });
+  } catch (error) {
+    return rs.status(500).json(error.message);
+  }
+
+  // const { id } = req.params;
+
+  // axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-Seven00321`)
+  // .then((resp) => {
+  //     let {name, gender, species, origin, image, status } = resp.data;
+
+  //     const character = {
+  //         id,
+  //         name,
+  //         gender,
+  //         species,
+  //         origin,
+  //         image,
+  //         status,
+  //     };
+
+  //     return character.name
+  //     ? res.JSON(character)
+  //     : res.status(404).send("Not found");
+  // })
+  // .catch((reason) => {
+  //     return res.status(500).send(reason.message);
+  // });
 };

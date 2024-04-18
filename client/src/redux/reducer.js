@@ -14,7 +14,11 @@ function rootReducer(state = initialState, action){
             //     myFavorites: [...state.myFavorites, action.payload],
             //     allCharacters: [...state.allCharacters, action.payload]
             // };
-            return { ...state, myFavorites: payload, allCharacters: payload };
+            return { 
+                ...state, 
+                myFavorites: action.payload, 
+                allCharacters: action.payload 
+            };
 
         case REMOVE_FAV:
             // const filteredFavs = state.myFavorites.filter((fav) => {
@@ -24,7 +28,10 @@ function rootReducer(state = initialState, action){
             //     ...state,
             //     myFavorites: filteredFavs,
             // }
-            return { ...state, myFavorites: payload };
+            return { 
+                ...state, 
+                myFavorites: action.payload 
+            };
 
         case FILTER_FAV:
             // const filterFavs = state.allCharacters.filter( char => char.gender.toLowerCase() === action.payload.toLowerCase())

@@ -5,7 +5,7 @@ const postFav = (req, res) => {
 
     myFavourites.push(req.body);
 
-    return res.JSON(myFavourites);
+    return res.status(200).JSON(myFavourites);
 };
 
 const deleteFav = (req, res) => {
@@ -17,7 +17,7 @@ const deleteFav = (req, res) => {
 
     myFavourites = deleteChar;
 
-    return res.JSON(myFavourites);
+    return res.status(200).JSON(myFavourites);
 }
 
 module.exports = { postFav, deleteFav };
