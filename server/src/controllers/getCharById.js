@@ -30,9 +30,10 @@ exports.getCharById = (res, id) => {
 };
 */
 
-const URL = `https://rym2.up.railway.app/api/`;
 
 const axios = require("axios");
+const URL = `https://rym2.up.railway.app/api/character/`;
+
 
 exports.getCharById = async (req, res) => {
   // extraemos el id de req con Params
@@ -58,8 +59,11 @@ exports.getCharById = async (req, res) => {
 
     return res.status(404).json({ error: "Not found" });
   } catch (error) {
-    return rs.status(500).json(error.message);
+    return res.status(500).json(error.message);
   }
+
+
+ 
 
   // const { id } = req.params;
 

@@ -1,10 +1,9 @@
-const routes = require("express").Router();
+const { Router } = require("express");
+const { getCharById } = require("../controllers/getCharById");
+const { login } = require("../controllers/login")
+const { postFav, deleteFav } = require("../controllers/handleFavorites");
 
-import { getCharById } from "../controllers/getCharById";
-import { postFav, deleteFav } from "../controllers/handleFavorites";
-import login from "../controllers/login";
-
-
+const routes = Router();
 
 routes.get('/character/:id', getCharById);
 routes.get('/login', login);
@@ -16,4 +15,4 @@ routes.delete('/fav/:id', deleteFav);
 
 
 
-export default routes;
+module.exports = routes;

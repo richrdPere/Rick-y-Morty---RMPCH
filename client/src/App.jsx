@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
-import Cards from "./components/Cards";
 import Nav from "./components/Nav";
 import About from "./components/About";
 // import Form from "./components/Form";
@@ -24,21 +23,21 @@ function App() {
     // const emailAccess = "richrdpere321@gmail.com";
     // const passwordAccess = "pass123";
 
-    function login(userData){
-        // if(userData.email === emailAccess && userData.password === passwordAccess){
-        //     setAccess(true);
-        //     navigate("/home");
-        // }
-        const { email, password } = userData;
-        const URL = 'http://localhost:3001/rickandmorty/login/';
-        axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-            const { access } = data;
-            setAccess(data);
-            access && navigate('/home');
-        });
-    }
+    // function login(userData){
+    //     // if(userData.email === emailAccess && userData.password === passwordAccess){
+    //     //     setAccess(true);
+    //     //     navigate("/home");
+    //     // }
+    //     const { email, password } = userData;
+    //     const URL = 'http://localhost:3001/rickandmorty/login/';
+    //     axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+    //         const { access } = data;
+    //         setAccess(data);
+    //         access && navigate('/home');
+    //     });
+    // }
 
-    async function login(userData){
+    const login = async (userData) => {
         try {
             const { email, password } = userData;
             const URL = 'http://localhost:3001/rickandmorty/login/';
