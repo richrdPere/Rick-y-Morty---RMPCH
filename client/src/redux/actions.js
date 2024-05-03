@@ -43,7 +43,7 @@ const addFav =  (character) => {
 // }
 
 const removeFav = (id) => {
-    const endpoint = 'http://localhost:3001/rickandmorty/fav' + id;
+    const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
 
     return async (dispatch) => {
         try{
